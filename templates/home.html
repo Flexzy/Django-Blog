@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+<div class="container p-4">
+
+{% for post in object_list %}
+    <div class="blog-post">
+        <h2 class="blog-post-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+        <p class="blog-post-meta">December 23, 2013 by <a href="#">{{post.author.username}}</a></p>
+
+        <p>{{ post.body }}</p>
+    </div><hr>
+{% endfor %}
+
+</div>
+
+{% endblock 'content' %}
